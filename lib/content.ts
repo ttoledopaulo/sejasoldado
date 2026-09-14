@@ -2,7 +2,7 @@ export type NewsItem = { slug: string; title: string; excerpt: string; date: str
 
 export const stats = [
   { value: "600", label: "marmitas entregues, em média, na grande ação de quinta-feira" },
-  { value: "7 dias", label: "de busca, preparo, triagem e distribuição de doações" },
+  { value: "7 dias", label: "de busca, preparo e distribuição de doações" },
   { value: "Desde 2018", label: "levando cuidado e esperança à Baixada Santista" },
 ];
 
