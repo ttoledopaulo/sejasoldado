@@ -1,0 +1,7 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Instagram, Mail, MapPin } from "lucide-react";
+
+export function Footer() {
+  return <footer className="bg-ink text-white"><div className="container-page grid gap-12 py-14 md:grid-cols-[1.2fr_.8fr_.8fr]"><div><Image src="/logo-soldados-valorosos.png" width={175} height={96} className="h-16 w-auto rounded-sm bg-white p-1" alt="Soldados Valorosos"/><p className="mt-5 max-w-sm text-sm leading-7 text-white/65">Acolhimento, dignidade e transformação para fortalecer pessoas e comunidades.</p></div><div><p className="text-sm font-extrabold">Navegue</p><div className="mt-4 grid gap-3 text-sm text-white/70"><Link href="/">Início</Link><Link href="/noticias">Notícias</Link><Link href="/contato">Contato</Link><Link href="/seja-parceiro">Seja parceiro</Link></div></div><div><p className="text-sm font-extrabold">Contato</p><div className="mt-4 grid gap-3 text-sm text-white/70"><p className="flex gap-2"><Mail size={16}/>contato@exemplo.org</p><p className="flex gap-2"><MapPin size={16}/>Praia Grande, SP</p><a className="flex gap-2 hover:text-lime" href="https://instagram.com/sejasoldado" target="_blank" rel="noreferrer"><Instagram size={16}/>@sejasoldado</a></div></div></div><div className="border-t border-white/10"><div className="container-page py-5 text-xs text-white/45">© {new Date().getFullYear()} Soldados Valorosos. Conteúdo demonstrativo para validação do site.</div></div></footer>;
+}

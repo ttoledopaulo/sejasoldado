@@ -1,0 +1,24 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react";
+import { latestNews, pillars, stats } from "@/lib/content";
+import { NewsCard } from "@/components/news-card";
+
+export default function Home() {
+  return <main>
+    <section className="bg-teal-deep text-white"><div className="container-page grid min-h-[650px] items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr] lg:py-20">
+      <div className="max-w-2xl"><p className="eyebrow !text-lime">Projeto Soldados Valorosos</p><h1 className="display mt-5 text-5xl leading-[.98] sm:text-6xl lg:text-7xl">Acolher é o primeiro passo para transformar.</h1><p className="mt-7 max-w-xl text-base leading-8 text-white/80">Somos uma rede de cuidado, presença e oportunidades para fortalecer pessoas e comunidades.</p><Link className="button-primary focus-ring mt-9 !bg-lime !text-ink hover:!bg-white" href="#conheca">Conheça o projeto <ArrowRight size={17} /></Link></div>
+      <div className="relative h-[390px] overflow-hidden sm:h-[470px]"><Image priority fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" alt="Pessoas reunidas em uma atividade comunitária" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=85"/><div className="absolute bottom-0 left-0 bg-magenta px-6 py-5 text-sm font-bold">Cada gesto de cuidado pode criar novos caminhos.</div></div>
+    </div></section>
+
+    <section id="conheca" className="container-page grid gap-12 py-24 lg:grid-cols-[.8fr_1.2fr]"><div><p className="eyebrow">Quem somos</p><h2 className="display mt-4 text-4xl leading-tight sm:text-5xl">Uma causa feita de pessoas para pessoas.</h2></div><div className="max-w-2xl"><p className="text-lg leading-8 text-ink/75">O Soldados Valorosos é uma iniciativa social de Praia Grande que acredita na escuta, no acolhimento e na força da comunidade para transformar realidades.</p><p className="mt-5 leading-8 text-ink/65">Este é um espaço para conhecer a causa, acompanhar as ações e encontrar caminhos para somar. Os conteúdos desta versão são demonstrativos e serão atualizados com informações oficiais.</p></div></section>
+
+    <section className="border-y border-ink/10 bg-white"><div className="container-page grid divide-y divide-ink/10 md:grid-cols-3 md:divide-x md:divide-y-0">{stats.map((stat) => <div key={stat.label} className="py-10 md:px-10 first:md:pl-0"><p className="display text-5xl text-teal-deep">{stat.value}</p><p className="mt-2 text-sm font-bold text-ink/65">{stat.label}</p></div>)}</div></section>
+
+    <section className="container-page py-24"><div className="max-w-2xl"><p className="eyebrow">Como atuamos</p><h2 className="display mt-4 text-4xl sm:text-5xl">Cuidado que se transforma em ação.</h2></div><div className="mt-12 grid gap-5 md:grid-cols-3">{pillars.map((pillar, index) => { const Icon = [HeartHandshake, ShieldCheck, Sparkles][index]; return <article className="border border-ink/10 bg-white p-7" key={pillar.title}><Icon className="text-magenta" size={28}/><h3 className="mt-8 text-lg font-extrabold">{pillar.title}</h3><p className="mt-3 leading-7 text-sm text-ink/65">{pillar.description}</p></article> })}</div></section>
+
+    <section className="bg-[#edf4ee]"><div className="container-page py-24"><div className="flex flex-wrap items-end justify-between gap-5"><div><p className="eyebrow">Acontece por aqui</p><h2 className="display mt-4 text-4xl sm:text-5xl">Últimas notícias</h2></div><Link href="/noticias" className="button-secondary focus-ring">Ver todas <ArrowRight size={16}/></Link></div><div className="mt-12 grid gap-7 md:grid-cols-3">{latestNews.map((news) => <NewsCard key={news.slug} news={news}/>)}</div></div></section>
+
+    <section className="bg-magenta text-white"><div className="container-page flex flex-col items-start justify-between gap-8 py-16 md:flex-row md:items-center"><div><p className="eyebrow !text-lime">Faça parte</p><h2 className="display mt-3 text-4xl sm:text-5xl">Vamos construir essa história juntos?</h2></div><Link href="/seja-parceiro" className="button-primary focus-ring !bg-white !text-ink hover:!bg-lime">Seja parceiro <ArrowRight size={17}/></Link></div></section>
+  </main>;
+}
