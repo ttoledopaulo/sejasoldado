@@ -4,7 +4,7 @@ export type ActionImage = { id: string; url: string; alt: string | null; positio
 export type ProjectAction = { id: string; slug: string; title: string; excerpt: string; content: string; action_date: string; action_time: string | null; location: string | null; cover_image_url: string | null; created_at: string; action_images: ActionImage[] };
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const configured = Boolean(url && key);
 const client = configured ? createClient(url!, key!) : null;
 
