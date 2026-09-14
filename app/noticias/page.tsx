@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import { NewsCard } from "@/components/news-card";
-import { publishedNews } from "@/lib/content";
+import { ActionCard } from "@/components/action-card";
+import { getPublishedActions } from "@/lib/cms";
 
 export const metadata: Metadata = { title: "Nossas ações", description: "Acompanhe as ações e os registros do Soldados Valorosos na Baixada Santista." };
+export const dynamic = "force-dynamic";
 
-export default function NewsPage() { return <main><section className="bg-teal-deep text-white"><div className="container-page py-20 sm:py-28"><p className="eyebrow !text-lime">Acontece por aqui</p><h1 className="display mt-4 text-5xl sm:text-6xl">Nossas ações</h1><p className="mt-5 max-w-xl leading-8 text-white/75">Registros das pessoas, dos encontros e das ações que movimentam o Soldados Valorosos.</p></div></section><section className="container-page py-16 sm:py-24">{publishedNews.length ? <div className="grid gap-x-7 gap-y-14 md:grid-cols-2 lg:grid-cols-3">{publishedNews.map((item) => <NewsCard key={item.slug} news={item}/>)}</div> : <div className="mx-auto max-w-2xl border border-ink/10 bg-[#edf4ee] p-10 text-center"><p className="eyebrow">Em breve</p><h2 className="display mt-4 text-4xl">Aqui vamos guardar a memória de cada ação.</h2><p className="mt-5 leading-8 text-ink/65">Fotos, data, horário e o relato do que aconteceu em cada encontro. Enquanto isso, acompanhe o dia a dia pelo Instagram.</p><a className="button-primary focus-ring mt-7" href="https://www.instagram.com/sejasoldado/" target="_blank" rel="noreferrer">Ir para o Instagram</a></div>}</section></main>; }
+export default async function ActionsPage() {
+  const actions = await getPublishedActions();
+  return <main><section className="bg-teal-deep text-white"><div className="container-page py-20 sm:py-28"><p className="eyebrow !text-lime">Acontece por aqui</p><h1 className="display mt-4 text-5xl sm:text-6xl">Nossas ações</h1><p className="mt-5 max-w-xl leading-8 text-white/75">Registros das pessoas, dos encontros e das ações que movimentam o Soldados Valorosos.</p></div></section><section className="container-page py-16 sm:py-24">{actions.length ? <div className="grid gap-x-7 gap-y-14 md:grid-cols-2 lg:grid-cols-3">{actions.map((item) => <ActionCard key={item.id} action={item}/>)}</div> : <div className="mx-auto max-w-2xl border border-ink/10 bg-[#edf4ee] p-10 text-center"><p className="eyebrow">Em breve</p><h2 className="display mt-4 text-4xl">Aqui vamos guardar a memória de cada ação.</h2><p className="mt-5 leading-8 text-ink/65">Fotos, data, horário e o relato do que aconteceu em cada encontro. Enquanto isso, acompanhe o dia a dia pelo Instagram.</p><a className="button-primary focus-ring mt-7" href="https://www.instagram.com/sejasoldado/" target="_blank" rel="noreferrer">Ir para o Instagram</a></div>}</section></main>;
+}

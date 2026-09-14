@@ -1,0 +1,6 @@
+"use client";
+
+import { useActionState } from "react";
+import { login } from "@/app/admin/actions";
+
+export default function AdminLogin() { const [state, action, pending] = useActionState(login, {}); return <main className="container-page grid min-h-[70vh] place-items-center py-16"><form action={action} className="w-full max-w-md border border-ink/10 bg-white p-8 sm:p-10"><p className="eyebrow">Área restrita</p><h1 className="display mt-4 text-4xl">Entrar no painel</h1><p className="mt-3 text-sm leading-6 text-ink/65">Use o acesso administrativo do Projeto Soldados Valorosos.</p>{state.error && <p className="mt-5 border-l-4 border-magenta bg-[#fff4f8] p-3 text-sm text-magenta">{state.error}</p>}<label className="mt-7 grid gap-2 text-sm font-bold">E-mail<input required name="email" type="email" className="focus-ring border border-ink/20 px-4 py-3 font-normal outline-none focus:border-teal"/></label><label className="mt-5 grid gap-2 text-sm font-bold">Senha<input required name="password" type="password" className="focus-ring border border-ink/20 px-4 py-3 font-normal outline-none focus:border-teal"/></label><button disabled={pending} className="button-primary focus-ring mt-7 w-full disabled:opacity-60">{pending ? "Entrando..." : "Entrar"}</button></form></main>; }
