@@ -1,15 +1,15 @@
 export type NewsItem = { slug: string; title: string; excerpt: string; date: string; category: string; image: string; imageAlt: string; body: string[] };
 
 export const stats = [
-  { value: "+1.500", label: "pessoas alcançadas em ações demonstrativas" },
-  { value: "12", label: "ações comunitárias demonstrativas" },
-  { value: "1", label: "propósito em comum: cuidar" },
+  { value: "500", label: "marmitas entregues, em média, toda quinta-feira" },
+  { value: "1", label: "Baixada Santista unida pela solidariedade" },
+  { value: "100%", label: "dedicação em levar cuidado e esperança" },
 ];
 
 export const pillars = [
-  { title: "Acolhimento", description: "Criamos espaços de escuta e apoio para quem precisa ser visto, ouvido e cuidado." },
-  { title: "Dignidade", description: "Mobilizamos a comunidade para ampliar o acesso a recursos, direitos e oportunidades." },
-  { title: "Transformação", description: "Acreditamos em ações contínuas que fortalecem vínculos e abrem novos horizontes." },
+  { title: "Alimento", description: "Toda quinta-feira, levamos em média 500 marmitas a moradores de rua da Baixada Santista." },
+  { title: "Cuidado", description: "Distribuímos roupas e levamos presença, acolhimento e esperança para quem mais precisa." },
+  { title: "Apoio às famílias", description: "Arrecadamos cestas básicas para famílias em situação de vulnerabilidade." },
 ];
 
 export const news: NewsItem[] = [
@@ -21,4 +21,7 @@ export const news: NewsItem[] = [
   { slug: "novos-caminhos", title: "Novos caminhos começam com presença", excerpt: "Conheça a importância de apoiar iniciativas de cuidado contínuo.", date: "30 de maio de 2026", category: "Comunidade", image: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&q=85", imageAlt: "Crianças em atividade ao ar livre", body: ["Conteúdo demonstrativo. Uma notícia como esta pode divulgar próximas atividades, mobilizações e formas de participação."] },
 ];
 
-export const latestNews = news.slice(0, 3);
+// Notícias só entram aqui após validação pela associação. As estruturas acima
+// ficam como referência editorial, sem serem expostas publicamente.
+export const publishedNews: NewsItem[] = [];
+export const latestNews = publishedNews.slice(0, 3);
