@@ -1,15 +1,15 @@
 export type NewsItem = { slug: string; title: string; excerpt: string; date: string; category: string; image: string; imageAlt: string; body: string[] };
 
 export const stats = [
-  { value: "500", label: "marmitas entregues, em média, toda quinta-feira" },
-  { value: "1", label: "Baixada Santista unida pela solidariedade" },
-  { value: "100%", label: "dedicação em levar cuidado e esperança" },
+  { value: "600", label: "marmitas entregues, em média, na grande ação de quinta-feira" },
+  { value: "7 dias", label: "de busca, preparo, triagem e distribuição de doações" },
+  { value: "Desde 2018", label: "levando cuidado e esperança à Baixada Santista" },
 ];
 
 export const pillars = [
-  { title: "Alimento", description: "Toda quinta-feira, levamos em média 500 marmitas a moradores de rua da Baixada Santista." },
-  { title: "Cuidado", description: "Distribuímos roupas e levamos presença, acolhimento e esperança para quem mais precisa." },
-  { title: "Apoio às famílias", description: "Arrecadamos cestas básicas para famílias em situação de vulnerabilidade." },
+  { title: "Buscar e preparar", description: "Todos os dias, recebemos e buscamos doações de alimentos, roupas, higiene, primeiros socorros e móveis." },
+  { title: "A grande quinta", description: "A maior ação da semana reúne a rede do projeto para preparar e entregar, em média, 600 marmitas." },
+  { title: "Chegar até quem precisa", description: "Do dia à noite, distribuímos doações e presença a moradores de rua e famílias de baixa renda." },
 ];
 
 export const news: NewsItem[] = [

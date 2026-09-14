@@ -5,7 +5,7 @@ import { Check, Copy, Heart, X } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import { pixCode, pixKeyFormatted } from "@/lib/pix";
 
-export function PixDonation() {
+export function PixDonation({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const closeButton = useRef<HTMLButtonElement>(null);
@@ -20,7 +20,7 @@ export function PixDonation() {
   }
 
   return <>
-    <button className="button-primary focus-ring !bg-magenta hover:!bg-[#a6175d]" onClick={() => setOpen(true)}><Heart size={17}/> Quero fazer uma doação</button>
+    <button className={compact ? "focus-ring inline-flex items-center gap-2 border border-magenta/25 bg-[#fff4f8] px-3 py-2.5 text-sm font-extrabold text-magenta transition hover:bg-magenta hover:text-white" : "button-primary focus-ring !bg-magenta hover:!bg-[#a6175d]"} onClick={() => setOpen(true)}><Heart className={compact ? "fill-magenta/10" : ""} size={17}/>{compact ? "Fazer uma doação" : "Quero fazer uma doação"}</button>
     {open && <div className="fixed inset-0 z-[60] grid place-items-center bg-ink/75 p-4" role="presentation" onMouseDown={() => setOpen(false)}>
       <section className="relative w-full max-w-md bg-paper p-7 shadow-2xl sm:p-9" role="dialog" aria-modal="true" aria-labelledby="pix-title" onMouseDown={(event) => event.stopPropagation()}>
         <button ref={closeButton} onClick={() => setOpen(false)} className="focus-ring absolute right-4 top-4 p-2 text-ink/70 hover:text-ink" aria-label="Fechar doação"><X size={21}/></button>
