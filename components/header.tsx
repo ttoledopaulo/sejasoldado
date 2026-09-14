@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { PixDonation } from "@/components/pix-donation";
 
-const links = [{ href: "/", label: "Início" }, { href: "/noticias", label: "Notícias" }, { href: "/contato", label: "Contato" }];
+const links = [{ href: "/", label: "Início" }, { href: "/noticias", label: "Nossas ações" }, { href: "/contato", label: "Contato" }];
 
 export function Header() {
   const [open, setOpen] = useState(false);

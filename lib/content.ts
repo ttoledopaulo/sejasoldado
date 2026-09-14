@@ -21,7 +21,7 @@ export const news: NewsItem[] = [
   { slug: "novos-caminhos", title: "Novos caminhos começam com presença", excerpt: "Conheça a importância de apoiar iniciativas de cuidado contínuo.", date: "30 de maio de 2026", category: "Comunidade", image: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&q=85", imageAlt: "Crianças em atividade ao ar livre", body: ["Conteúdo demonstrativo. Uma notícia como esta pode divulgar próximas atividades, mobilizações e formas de participação."] },
 ];
 
-// Notícias só entram aqui após validação pela associação. As estruturas acima
+// Ações só entram aqui após validação pela associação. As estruturas acima
 // ficam como referência editorial, sem serem expostas publicamente.
 export const publishedNews: NewsItem[] = [];
 export const latestNews = publishedNews.slice(0, 3);
